@@ -1,0 +1,47 @@
+.master{
+    background-color: brown;
+    margin: 0 auto;
+    column-count: 3;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.disc1{
+    background-color: greenyellow;
+}
+
+.disc2{
+    background-color: aqua;
+}
+
+.disc3{
+    background-color: blueviolet;
+}
+
+.tower1{
+    display: flex; 
+    flex-direction: column-reverse; 
+    align-items: center;
+    background-color: blue;
+    height: 800px;
+    margin: 0 auto;
+}
+
+.tower2{
+    display: flex; 
+    flex-direction: column-reverse; 
+    align-items: center;
+    background-color: blue;
+    height: 800px;
+}
+
+.tower3{
+    display: flex; 
+    flex-direction: column-reverse; 
+    align-items: center;
+    background-color: blue;
+    height: 800px;
+}
+
