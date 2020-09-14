@@ -1,47 +1,73 @@
-.master{
-    background-color: brown;
-    margin: 0 auto;
-    column-count: 3;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.titulo{
+body {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+header {
+    padding: 20px 0;
+}
+
+.master {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.titulo {
     text-align: center;
+    font-size: 3em;
 }
 
-.disc1{
+.disc1 {
+    background-color: rgb(255, 95, 47);
+    width: 200px;
+    height: 40px;
+}
+
+.disc2 {
+    background-color: aqua;
+    width: 150px;
+    height: 40px;
+}
+
+.disc3 {
+    background-color: blueviolet;
+    width: 100px;
+    height: 40px;
+}
+
+.tower1 {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 30%;
+    height: 500px;
     background-color: greenyellow;
 }
 
-.disc2{
-    background-color: aqua;
-}
-
-.disc3{
-    background-color: blueviolet;
-}
-
-.tower1{
-    display: flex; 
-    flex-direction: column-reverse; 
+.tower2 {
+    display: flex;
+    flex-direction: column-reverse;
     align-items: center;
-    background-color: blue;
-    height: 800px;
-    margin: 0 auto;
+    width: 30%;
+    height: 500px;
+    background-color: rgb(255, 206, 47);
 }
 
-.tower2{
-    display: flex; 
-    flex-direction: column-reverse; 
+.tower3 {
+    display: flex;
+    flex-direction: column-reverse;
     align-items: center;
-    background-color: blue;
-    height: 800px;
+    width: 30%;
+    height: 500px;
+    background-color: greenyellow;
 }
-
-.tower3{
-    display: flex; 
-    flex-direction: column-reverse; 
-    align-items: center;
-    background-color: blue;
-    height: 800px;
-}
-
