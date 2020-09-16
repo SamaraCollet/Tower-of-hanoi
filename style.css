@@ -31,6 +31,13 @@ header {
 }
 
 
+/*----------------REGRAS-----------------------------------*/
+
+.regras {
+    text-align: center;
+}
+
+
 /*-----------------DISCOS-----------------------------------*/
 
 .disc1,
@@ -76,10 +83,11 @@ header {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    width: 22%;
+    width: 295px;
     /*22%*/
     height: 300px;
     background-image: url(img/pino.jpg);
+    background-repeat: no-repeat;
 }
 
 
@@ -91,4 +99,100 @@ header {
     height: 20px;
     width: 80%;
     border-radius: 20px;
+}
+
+
+/*---------------RESPONSIVO-------------------------------------*/
+
+
+/* Desktop grande */
+
+@media (max-width: 1200px) {
+    #base {
+        width: 85%;
+    }
+}
+
+
+/* Tablet em retrato a paisagem e desktop */
+
+@media (min-width:768px) and (max-width:979px) {
+    #base {
+        width: 93%;
+    }
+    .tower {
+        background-image: url(img/pino2.jpg);
+        background-position-x: center;
+        min-width: 236px;
+    }
+}
+
+
+/* Telefones em paisagem a tablet em retrato */
+
+@media only screen and (max-width: 767px) {
+    #base {
+        width: 95%;
+    }
+    .tower {
+        margin-top: 7vh;
+        background-image: url(img/pino2.jpg);
+        background-position-x: center;
+        width: 50%;
+    }
+    .disc1,
+    .disc2,
+    .disc3,
+    .disc4 {
+        height: 40px;
+    }
+    .disc1 {
+        width: 150px;
+    }
+    .disc2 {
+        width: 120px;
+    }
+    .disc3 {
+        width: 90px;
+    }
+    .disc4 {
+        width: 60px;
+    }
+    .regras {
+        font-size: 1.2em;
+        margin: 0 30px;
+    }
+}
+
+
+/* Telefones em paisagem e abaixo */
+
+@media (max-width: 480px) {
+    #base {
+        width: 97%;
+    }
+    .titulo {
+        font-size: 2.8em;
+    }
+    .disc1,
+    .disc2,
+    .disc3,
+    .disc4 {
+        height: 40px;
+    }
+    .disc1 {
+        width: 120px;
+    }
+    .disc2 {
+        width: 100px;
+    }
+    .disc3 {
+        width: 80px;
+    }
+    .disc4 {
+        width: 60px;
+    }
+    .regras {
+        margin: 0 30px;
+    }
 }

@@ -70,12 +70,11 @@ const handleClick = function(event) {
         //altera a variavel da tela
         choice = "escolha"
     }
-    //declara vencedor
+    //declara vencedor no terceiro pino
     let win = document.getElementById('tower3');
-    let win2 = document.getElementById('tower2')
 
-    if (win.childElementCount > 2 || win2.childElementCount > 2) {
-        alert("Você venceu!!!");
+    if (win.childElementCount > 3) {
+        alert("Parabéns, você venceu!!!");
     }
 
 }
