@@ -1,49 +1,81 @@
-function atribuirVariavel(disc) {
-    //pega o ultimo disco clicado
-    let element = document.getElementById('disco')
-        //set o valor de value do input hidden da tela
+function load() {
+    // pegar o id das torres
+    let el = document.getElementById("tower1")
+    let el2 = document.getElementById("tower2")
+    let el3 = document.getElementById("tower3")
 
-    // ---------------------------------------------------------------    
-    //TO DO = 1º PEGAR TORRE DO DISCO SELECIONADO
-    //        2º VERIFICAR SE O ULTIMO ELEMENTO DA TORRE CORRESPONDE AO ELEMENTO SELECIONADO
-    //        *APENAS SETAR VALOR SE PASSO 2º FOR IGUAL A TRUE
-    // --------------------------------------------------------------------------
-
-    element.value = disc
+    //criar os listeners de click
+    el.addEventListener("click", handleClick);
+    el2.addEventListener("click", handleClick);
+    el3.addEventListener("click", handleClick);
 }
 
-function escolhaTorre(escolha) {
-    //pega o id do ultimo disco clicado
-    let element = document.getElementById('disco').value
-        //pega o elemento disco clicado
-    let node = document.getElementById(element);
+//carregar os listeners ao carregar a pagina
+document.addEventListener("DOMContentLoaded", load, false);
 
-    //pega a div de origem
-    let torreDeOrigem = document.getElementById(node.parentNode.id)
+//variaveis que vão ficar salvo na tela
+let currentTower = 'tower1';
+let nextTower = ['tower2', 'tower3']
+let choice = "escolha"
+let discs = ["disc1", "disc2", "disc3"]
 
-    if (node.parentNode) { // se houver elemento clicado remove da div de origem
-        node.parentNode.removeChild(node);
+//função de evento de click das torres
+const handleClick = function(event) {
+    //mostra quem clicou
+    let tower = event.target
+
+    //faz o click selecionar somente o parent e não dos discos
+    if (discs.includes(tower.id)) {
+        tower = tower.parentElement
     }
-    //pega elemento torre clicada
-    let tower = document.getElementById(escolha);
 
-    // pega o ultimo disco da torre clicada
-    let ultimoDisco = tower.lastElementChild
-
-    //verifica se existe ultimo disco
-    if (ultimoDisco !== null) {
-        ultimoDisco = ultimoDisco.classList.value
-
-        //verifica o tamanho do ultimo disco
-        if ((ultimoDisco == 'disc3') || (ultimoDisco == 'disc2' && element == 'disc1')) {
-            //caso o ultimo disco seja menor o disco selecionado volta a div de origem
-            torreDeOrigem.appendChild(node)
-        } else {
-            //set disco na torre
-            tower.appendChild(node)
+    //verifica se é o disco escolhido ou o adicionado
+    if (choice == "escolha") {
+        // se a torre não tiver com nenhum disco, sai da função
+        if (tower.childElementCount < 1) {
+            return
         }
+        //muda a a torre clicada
+        if (nextTower.includes(tower.id)) {
+            nextTower.push(currentTower)
+            nextTower.splice(nextTower.indexOf(tower.id), 1)
+            currentTower = tower.id
+        }
+        choice = "adicionar"
     } else {
-        //set disco na torre
-        tower.appendChild(node)
+        //pega a torre de onde o disco vai sair
+        let lastTower = document.getElementById(currentTower)
+
+        //pega o disco a ser retirado
+        let disc = lastTower.lastElementChild
+
+        //pega o ultimo disco da torre que vai receber o disco
+        let lastDisc = tower.lastElementChild
+
+        //verifica se existe disco na torre
+        if (lastDisc == null) {
+            if (disc != null) {
+                tower.appendChild(disc)
+            }
+        } else {
+            //pega o tamanho do ultimo disco
+            let sizeDiscLastDisc = lastDisc.clientWidth
+                //pega o tamanho do disco selecionado
+            let sizeDiscNextDisc = disc.clientWidth
+                //verifica se o disco selecionado não é maior que o disco debaixo
+            if (sizeDiscLastDisc > sizeDiscNextDisc) {
+                tower.appendChild(disc)
+            }
+        }
+        //altera a variavel da tela
+        choice = "escolha"
     }
+    //declara vencedor
+    let win = document.getElementById('tower3');
+    let win2 = document.getElementById('tower2')
+
+    if (win.childElementCount > 2 || win2.childElementCount > 2) {
+        alert("Você venceu!!!");
+    }
+
 }

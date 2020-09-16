@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -11,23 +11,22 @@
 
 <body>
     <header>
-        <h1 class="titulo">Tower of Hanoi</h1>
+        <h1 class="titulo">Torre de Hanoi</h1>
     </header>
-    <div class="master" id="master">
+    <div class="master">
 
-        <div class="tower1" id="tower1" onclick="escolhaTorre('tower1')">
-            <div class="disc1" id="disc1" onclick="atribuirVariavel('disc1')"></div>
-            <div class="disc2" id="disc2" onclick="atribuirVariavel('disc2')"></div>
-            <div class="disc3" id="disc3" onclick="atribuirVariavel('disc3')"></div>
+        <div class="tower" id="tower1">
+            <div class="disc1" id="disc1"></div>
+            <div class="disc2" id="disc2"></div>
+            <div class="disc3" id="disc3"></div>
+            <div class="disc4" id="disc4"></div>
         </div>
-        <div class="tower2" id="tower2" onclick="escolhaTorre('tower2')"></div>
-        <div class="tower3" id="tower3" onclick="escolhaTorre('tower3')"></div>
-
-
+        <div class="tower" id="tower2"></div>
+        <div class="tower" id="tower3"></div>
 
     </div>
     <div id="base"></div>
-    <input id="disco" type="hidden" value>
+    <div id="span"></div>
     <script src="script.js"></script>
 </body>
 
